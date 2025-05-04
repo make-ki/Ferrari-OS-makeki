@@ -1,0 +1,26 @@
+Title,Body,Assignee,Milestone,Labels,Due Date
+[Task] Repository & Base ISO Setup,"Set up GitHub repo, archiso structure, build default Arch ISO.",,,task,2025-05-05
+[Task] Package & Pacman Configuration,"Trim default packages, configure Pacman and mkinitcpio.",,,task,2025-05-07
+[Task] Bootloader & Branding,Design Ferrari bootloader theme and Plymouth splash.,,,task,2025-05-09
+[Task] Desktop & Visual Identity,"Add wallpapers, icon sets, and theme Ferrari's GUI.",,,task,2025-05-11
+[Task] Shell & Login Configuration,"Set custom shell, MOTD, and system info screen.",,,task,2025-05-13
+[Task] Security Hardening,"Harden SSH, AppArmor, and fail2ban integration.",,,task,2025-05-15
+[Task] CI & Testing Foundation,Automate builds with GitHub Actions and local testing.,,,task,2025-05-17
+[Task] Custom Tools & Installers,Begin building Ferrari CLI tools and installer wizard.,,,task,2025-05-20
+[Task] User Experience & Telemetry,"Create welcome GUI, dotfile tools, telemetry system.",,,task,2025-05-23
+[Task] Custom Repositories & Packages,"Add Ferrari repos, signing key, and core packages.",,,task,2025-05-26
+[Task] Updaters & Emergency Tools,Build updater and emergency rescue shell.,,,task,2025-05-29
+[Task] System Performance Tuning,"Optimize systemd, SSD, zram, and kernel sysctls.",,,task,2025-06-01
+[Task] Sudo & Network Security,"Harden sudoers, add firewall presets, secure TCP/IP.",,,task,2025-06-04
+[Task] Backups & Snapshots,Integrate Timeshift/Snapper and Ferrari backup tools.,,,task,2025-06-09
+[Task] App Center & Package Formats,"Add Ferrari App Center, Flatpak, AUR helper.",,,task,2025-06-12
+[Task] Web Browser & Branding,Preconfigure Firefox with Ferrari theme.,,,task,2025-06-15
+[Task] Gaming Stack,"Add Ferrari Gaming Mode, Wine, Proton, overlays.",,,task,2025-06-18
+[Task] Productivity Stack,"Default editors, tmux, Ferrari workflow aliases.",,,task,2025-06-21
+[Task] Dev Tools & Containers,"Add Ferrari SDK, docker/podman tools.",,,task,2025-06-24
+[Task] Offline & Globalization,Create offline installer and multilingual support.,,,task,2025-06-27
+[Task] Docs & Community Support,"Finalize docs, host site, and write press kit.",,,task,2025-06-30
+[Task] Testing & QA,"Test boot, install, and features. Log bugs.",,,task,2025-07-06
+[Task] UI Polish & Extras,"Add animations, polish UI, include easter eggs.",,,task,2025-07-13
+[Task] Final ISO Prep,"Build final ISO, host it, write changelog.",,,task,2025-07-19
+[Task] Launch & Community,"Push launch, marketing, roadmap for v2.",,,task,2025-07-26
