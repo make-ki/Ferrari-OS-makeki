@@ -1,0 +1,35 @@
+name: Delete Multiple Issues
+
+on:
+  workflow_dispatch:
+
+jobs:
+  delete-issues:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Delete issues
+      run: |
+        python3 -c '
+        import requests
+        import os
+        
+        def delete_issue(issue_number):
+            url = f"https://api.github.com/repos/{os.environ["GITHUB_REPOSITORY"]}/issues/{issue_number}"
+            headers = {
+                "Authorization": f"Bearer {os.environ["GITHUB_TOKEN"]}",
+                "Accept": "application/vnd.github+json"
+            }
+            
+            response = requests.patch(url, headers=headers, json={"state": "closed"})
+            if response.status_code == 200:
+                print(f"✅ Successfully closed issue #{issue_number}")
+            else:
+                print(f"❌ Failed to close issue #{issue_number}")
+                
+        # Delete issues 4 through 29
+        for issue_num in range(4, 30):
+            delete_issue(issue_num)
+        '
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

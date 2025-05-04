@@ -1,0 +1,99 @@
+name: 🚀 Auto Create Ferrari OS Roadmap Issues
+
+on:
+  workflow_dispatch:
+
+jobs:
+  create_issues:
+    runs-on: ubuntu-latest
+    steps:
+      - name: ⬇️ Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: 🛠️ Set Up jq
+        run: sudo apt-get update && sudo apt-get install -y jq
+
+      - name: 🧠 Create Issues from Roadmap
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+        run: |
+          issues=(
+            "Set up GitHub repo with README.md, LICENSE, CONTRIBUTING.md, .gitignore|Initialize the repository with essential meta-files and community guidelines.|\"repo\", \"setup\""
+            "Initialize archiso build structure (configs/, scripts/, build_iso.sh)|Prepare the foundational build structure for ISO generation.|\"iso\", \"setup\""
+            "Build default Arch ISO and test in QEMU|Generate and test a base Arch Linux ISO using archiso.|\"iso\", \"testing\""
+            "Create base_packages.txt and trim default packages|Customize the core package list for Ferrari OS.|\"packages\", \"customization\""
+            "Configure Pacman: color, parallel downloads, custom repo support|Tweak pacman for performance and branding.|\"pacman\", \"configuration\""
+            "Replace mkinitcpio.conf with Ferrari-specific hooks|Customize initramfs hooks for Ferrari boot sequence.|\"init\", \"hooks\""
+            "Design Ferrari bootloader theme (GRUB/systemd-boot)|Create a branded boot experience with themes and logos.|\"bootloader\", \"branding\""
+            "Integrate Ferrari logo and red-black theme|Apply core Ferrari visual identity across boot and system.|\"branding\", \"theme\""
+            "Apply animated Plymouth boot splash|Add custom animated splash screen to boot experience.|\"plymouth\", \"ui\""
+            "Add Ferrari-themed wallpapers, icon sets, cursor themes|Curate cohesive Ferrari desktop look and feel.|\"theming\", \"visual\""
+            "Create GTK and QT themes|Build consistent themes across GTK/QT toolkits.|\"themes\", \"desktop\""
+            "Modify LightDM/GDM greeter appearance|Customize login screen UI and animations.|\"greeter\", \"ui\""
+            "Set default shell and prompt|Use Zsh/Fish and design branded Ferrari shell prompt.|\"shell\", \"terminal\""
+            "Create Ferrari MOTD and ASCII art|Display stylish MOTD and Ferrari ASCII banner on login.|\"login\", \"ascii\""
+            "Include system info tool (neofetch/ferrfetch)|Showcase branded system info on terminal login.|\"tooling\", \"branding\""
+            "Harden SSH, disable root login|Improve security of remote access.|\"security\", \"ssh\""
+            "Integrate AppArmor or Firejail|Add application sandboxing layer for hardened security.|\"security\", \"sandboxing\""
+            "Include fail2ban or similar|Mitigate brute-force attacks.|\"security\", \"auth\""
+            "Automate ISO builds with GitHub Actions|Set up CI for reproducible ISO builds.|\"ci\", \"automation\""
+            "Test builds in QEMU and VirtualBox|Ensure ISO reliability in common virtual environments.|\"testing\", \"qa\""
+            "Enable local caching for faster builds|Speed up build iterations using pacman cache.|\"build\", \"performance\""
+            "Build Ferrari Installer CLI|Write TUI installer for Ferrari OS installation.|\"installer\", \"cli\""
+            "Build Ferrari Post-Install wizard|Guide users with post-install setup steps.|\"installer\", \"ux\""
+            "Create Welcome GUI|Build GTK/TUI welcome screen for first boot.|\"gui\", \"welcome\""
+            "Add dotfile management scripts|Automate user dotfiles and shell setup.|\"dotfiles\", \"automation\""
+            "Add Ferrari telemetry opt-in tool|Gather usage stats (opt-in) for insight.|\"telemetry\", \"privacy\""
+            "Add Ferrari repositories + package signing key|Host and sign custom packages.|\"repo\", \"signing\""
+            "Host scripts and custom packages in ferrari-core|Create central repo for Ferrari-specific software.|\"core\", \"custom\""
+            "Package wallpapers, themes, plymouth|Bundle Ferrari aesthetic assets as installable packages.|\"assets\", \"packages\""
+            "Write Ferrari System Update tool|Script that manages updates from Ferrari repos.|\"updater\", \"tooling\""
+            "Add Ferrari Emergency Shell|Fallback shell for rescue situations.|\"rescue\", \"recovery\""
+            "Build auto-updater logic|Support for silent/system updates.|\"updater\", \"automation\""
+            "Optimize systemd boot time|Reduce boot latency by optimizing services.|\"performance\", \"boot\""
+            "Enable SSD/zram optimizations|Boost performance on modern hardware.|\"performance\", \"zram\""
+            "Tune kernel sysctl values|Optimize kernel parameters for responsiveness.|\"kernel\", \"sysctl\""
+            "Harden sudoers config|Prevent privilege escalation abuse.|\"security\", \"sudo\""
+            "Include firewall presets|Preconfigure firewall rules for safety.|\"firewall\", \"security\""
+            "Harden TCP/IP stack|Secure the networking layer.|\"network\", \"security\""
+            "Add UI for Garage Toolkit (backup, restore)|GUI for backup and recovery tools.|\"gui\", \"backup\""
+            "Set up Timeshift or Snapper for BTRFS|Enable snapshots and rollback.|\"btrfs\", \"snapshots\""
+            "Document recovery workflows|Guide for system recovery using snapshots.|\"docs\", \"recovery\""
+            "Add Ferrari App Center (GUI/CLI)|Provide app management interface.|\"appstore\", \"ui\""
+            "Include Flatpak, AppImage, and AUR helper|Support multiple app formats.|\"packages\", \"flatpak\""
+            "Preconfigure Firefox with Ferrari start page|Themed browser for branding.|\"browser\", \"branding\""
+            "Include Ferrari browser extension|Inject Ferrari features into browser.|\"extension\", \"browser\""
+            "Add Ferrari Gaming Mode stack|Enable Wine, Proton, and performance tools.|\"gaming\", \"performance\""
+            "Add Ferrari Productivity Suite|Office, text, terminal, editor, aliases.|\"tools\", \"productivity\""
+            "Add Ferrari SDK with compilers|Development tools preinstalled.|\"sdk\", \"dev\""
+            "Add optional container stack|Podman/Docker support for devs.|\"containers\", \"docker\""
+            "Add offline installer variant|Ferrari OS can install without internet.|\"offline\", \"installer\""
+            "Add multilingual support|Localization for international users.|\"i18n\", \"localization\""
+            "Add timezone and locale configurators|Setup tools for region and time.|\"timezone\", \"locale\""
+            "Finalize documentation|Troubleshooting, manuals, FAQ.|\"docs\", \"final\""
+            "Host documentation on GitHub Pages|Live docs for users and devs.|\"website\", \"docs\""
+            "Write press kit (logo, tagline, screenshots)|Ferrari OS promo materials.|\"marketing\", \"press\""
+            "Launch official Ferrari OS website|Public landing page with downloads.|\"launch\", \"website\""
+            "Create contributor’s guide|Onboard contributors with clear instructions.|\"contribution\", \"community\""
+            "Define governance and code of conduct|Policies and behavioral rules.|\"governance\", \"code-of-conduct\""
+            "Open community forum|Discussions, Matrix, or Discord for users.|\"community\", \"forum\""
+            "Run pre-release alpha testing|Collect early feedback.|\"testing\", \"alpha\""
+            "Tag and release Ferrari OS Beta|First public ISO release.|\"release\", \"beta\""
+            "Collect feedback and bug reports|Beta test tracking.|\"feedback\", \"bugs\""
+            "Plan roadmap to 1.0|Define goals and future roadmap.|\"roadmap\", \"planning\""
+          )
+
+          for entry in "${issues[@]}"; do
+            IFS='|' read -r title body labels <<< "$entry"
+            labels_json=$(jq -n --argjson l "[$labels]" '$l')
+            curl -s -X POST \
+              -H "Authorization: token $GITHUB_TOKEN" \
+              -H "Accept: application/vnd.github+json" \
+              https://api.github.com/repos/$REPO/issues \
+              -d "$(jq -n \
+                --arg title "$title" \
+                --arg body "$body" \
+                --argjson labels "$labels_json" \
+                '{title: $title, body: $body, labels: $labels}')"
+          done
