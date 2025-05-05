@@ -30,5 +30,4 @@ valgrind             # Memory debugging tool
 strace               # System call tracer
 
 # Documentation
-man-db               # Manual page viewer
 man-pages            # Linux manual pages
