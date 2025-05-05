@@ -1,0 +1,93 @@
+# Core System Packages
+base                    # Minimal package set for basic Linux system
+base-devel             # Development tools for building packages
+linux                  # Linux kernel
+linux-firmware         # Hardware firmware
+linux-headers          # Header files for kernel compilation
+
+# Boot Management
+grub                   # Boot loader
+efibootmgr             # EFI boot manager
+os-prober              # OS detection for multi-boot
+mkinitcpio             # Initial ramdisk creation tool
+systemd                # System and service manager
+
+# System Management
+polkit                 # Authorization framework
+udisks2               # Storage device daemon
+upower                # Power management
+cronie                # Task scheduler
+syslog-ng             # System logging
+acpi                  # Power interface
+lsof                  # List open files
+
+# Network Management
+networkmanager         # Network connection manager
+network-manager-applet # GUI for NetworkManager
+wireless_tools        # Wireless utilities
+wpa_supplicant       # WPA authenticator
+dhcpcd               # DHCP client
+iwd                  # Alternative wireless daemon
+bluez                # Bluetooth support
+bluez-utils          # Bluetooth utilities
+
+# File Systems
+btrfs-progs          # BTRFS filesystem tools
+dosfstools           # FAT filesystem tools
+e2fsprogs            # EXT filesystem tools
+ntfs-3g              # NTFS filesystem support
+xfsprogs             # XFS filesystem tools
+gvfs                 # Virtual filesystem
+gvfs-mtp             # MTP device support
+
+# System Tools
+sudo                 # Privilege elevation
+man-db               # Manual pages database
+man-pages            # System manual pages
+nano                 # Simple text editor
+vim                  # Advanced text editor
+git                  # Version control
+curl                 # URL transfer tool
+wget                 # File download utility
+htop                 # System monitor
+neofetch             # System information display
+
+# Graphics Support
+mesa                 # Open-source GPU drivers
+xf86-video-amdgpu    # AMD GPU driver
+xf86-video-intel     # Intel GPU driver
+nvidia               # NVIDIA GPU driver
+nvidia-utils         # NVIDIA utilities
+intel-ucode          # Intel CPU microcode
+amd-ucode            # AMD CPU microcode
+
+# Compression Tools
+zip                  # ZIP archive support
+unzip               # ZIP extraction
+p7zip               # 7-Zip file archiver
+tar                 # Tape archiver
+xz                  # XZ compression
+
+# Security
+cryptsetup           # Disk encryption
+tpm2-tools           # TPM 2.0 tools
+tpm2-tss             # TPM 2.0 libraries
+livecd-sounds        # System sound effects
+
+# Virtualization
+hyperv               # Hyper-V support
+screen               # Terminal multiplexer
+sequoia-sq           # OpenPGP implementation
+
+# Recovery Tools
+ddrescue             # Data recovery utility
+
+# Network Services
+ppp                  # Point-to-Point Protocol
+pptpclient           # PPTP VPN client
+rp-pppoe             # PPPoE support
+wvdial               # Modem dialer
+darkhttpd            # Lightweight HTTP server
+irssi                # Terminal IRC client
+cloud-init           # Cloud instance initialization
+pcsclite             # Smart card support
