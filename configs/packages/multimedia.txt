@@ -6,7 +6,6 @@ pipewire-jack        # JACK support for PipeWire
 wireplumber          # Session/policy manager for PipeWire
 
 # Audio Controls
-pavucontrol          # PulseAudio volume control GUI
 alsa-utils           # ALSA utilities (alsamixer, etc)
 playerctl            # Media player controller
 
