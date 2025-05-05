@@ -1,0 +1,26 @@
+# Window Manager & Core Components
+hyprland              # Dynamic tiling Wayland compositor
+waybar                # Highly customizable status bar
+rofi                  # Application launcher and window switcher
+dunst                 # Lightweight notification daemon
+swww                  # Efficient wallpaper daemon for Wayland
+
+# Display Management
+sddm                  # QML-based display manager
+xorg-xwayland         # X11 compatibility layer for Wayland
+qt5-wayland           # Qt5 Wayland client/server libraries
+qt6-wayland           # Qt6 Wayland client/server libraries
+polkit-gnome          # PolicyKit integration for GNOME
+
+# Essential Applications
+kitty                 # GPU-accelerated terminal emulator
+thunar                # Modern file manager
+firefox               # Web browser
+
+# System Controls
+network-manager-applet # Network management tray utility
+pavucontrol           # PulseAudio volume control
+
+# Fonts
+ttf-jetbrains-mono-nerd  # Patched JetBrains Mono with icons
+noto-fonts               # Google Noto TTF fonts

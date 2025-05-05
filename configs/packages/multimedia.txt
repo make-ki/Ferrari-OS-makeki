@@ -1,0 +1,30 @@
+# Audio System
+pipewire              # Modern audio/video server
+pipewire-alsa        # ALSA support for PipeWire
+pipewire-pulse       # PulseAudio support for PipeWire
+pipewire-jack        # JACK support for PipeWire
+wireplumber          # Session/policy manager for PipeWire
+
+# Audio Controls
+alsa-utils           # ALSA utilities (alsamixer, etc)
+playerctl            # Media player controller
+
+# Media Codecs
+gst-plugins-base     # GStreamer base plugins
+gst-plugins-good     # GStreamer good plugins
+gst-plugins-bad      # GStreamer bad plugins
+gst-plugins-ugly     # GStreamer ugly plugins
+gst-libav            # GStreamer FFmpeg plugin
+
+# Media Players
+mpv                  # Modern media player
+vlc                  # Feature-rich media player
+
+# Screen Capture
+slurp                # Region selector for screenshots
+wl-clipboard         # Wayland clipboard utilities
+
+# Hardware Acceleration
+intel-media-driver   # Intel VA-API driver
+libva-mesa-driver    # Mesa VA-API driver
+nvidia-utils         # NVIDIA utilities and drivers
