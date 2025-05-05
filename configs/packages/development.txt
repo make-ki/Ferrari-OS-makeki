@@ -1,0 +1,34 @@
+# Version Control
+git                   # Distributed version control system
+git-lfs               # Git extension for large file storage
+
+# Build System & Compilers
+base-devel            # Group of development tools
+cmake                 # Cross-platform build system generator
+make                  # Build automation tool
+gcc                   # GNU Compiler Collection
+clang                 # LLVM C/C++ compiler
+
+# Python Development
+python                # Python programming language
+python-pip            # Python package installer
+python-virtualenv     # Python virtual environment creator
+
+# Text Editors
+vim                   # Vi Improved text editor
+neovim               # Modern Vi fork with extensions
+
+# Terminal Utilities
+tmux                 # Terminal multiplexer
+htop                 # Interactive process viewer
+tree                 # Directory listing tool
+fzf                  # Fuzzy finder
+
+# Debugging Tools
+gdb                  # GNU debugger
+valgrind             # Memory debugging tool
+strace               # System call tracer
+
+# Documentation
+man-db               # Manual page viewer
+man-pages            # Linux manual pages
