@@ -1,0 +1,7 @@
+PermitRootLogin no
+PasswordAuthentication no
+AllowUsers yourusername
+PermitEmptyPasswords no
+ChallengeResponseAuthentication no
+UsePAM yes
+X11Forwarding no
