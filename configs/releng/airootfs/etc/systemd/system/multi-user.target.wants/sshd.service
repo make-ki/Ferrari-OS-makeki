@@ -1,0 +1,12 @@
+[Unit]
+Description=OpenSSH server daemon
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/sshd -D
+ExecReload=/bin/kill -HUP $MAINPID
+Restart=always
+User=root
+
+[Install]
+WantedBy=multi-user.target
