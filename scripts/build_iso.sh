@@ -22,7 +22,12 @@ mkdir -p "$PACKAGE_DIR"
 mkdir -p configs/airootfs/usr/local/bin
 mkdir -p configs/airootfs/usr/share/bash-completion/completions
 mkdir -p configs/airootfs/etc/profile.d
+# Add this to your build_iso.sh before creating the symlink
+chmod +x configs/airootfs/usr/local/bin/livecd-sound
 
+# Change from multi-user.target.wants to basic.target.wants
+mkdir -p "$CONFIG_DIR/airootfs/etc/systemd/system/basic.target.wants"
+ln -sf /etc/systemd/system/boot-sound.service "$CONFIG_DIR/airootfs/etc/systemd/system/basic.target.wants/boot-sound.service"
 # Create Ferrari OS aliases file
 cat > "$CONFIG_DIR/airootfs/etc/profile.d/pit-aliases.sh" << 'EOL'
 # Ferrari OS package manager aliases
