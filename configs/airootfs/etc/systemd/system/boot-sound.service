@@ -1,0 +1,19 @@
+[Unit]
+Description=Initialize sound and play boot sound
+# Run as early as possible, but still need basic sound support
+DefaultDependencies=no
+After=sysinit.target
+Before=basic.target
+# This ensures sound card drivers are loaded, but don't wait for full sound.target
+Wants=sys-devices-pci*-sound-card*-controlC*.device
+After=sys-devices-pci*-sound-card*-controlC*.device
+
+[Service]
+Type=oneshot
+ExecStartPre=/usr/bin/sleep 0.5
+ExecStart=/usr/local/bin/livecd-sound --unmute
+RemainAfterExit=yes
+TimeoutSec=10
+
+[Install]
+WantedBy=basic.target

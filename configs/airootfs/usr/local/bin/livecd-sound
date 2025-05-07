@@ -159,8 +159,18 @@ list_non_pcsp_cards() {
 }
 
 # Properly initialize the sound card so that we have audio at boot.
+# Inside the unmute_all_cards() function
 unmute_all_cards() {
-    sanify_levels all
+    # Set only the essential controls for sound playback
+    for card in $(list_non_pcsp_cards); do
+        if is_numeric "$card"; then
+            unmute_and_set_level "$card" "Master" "80%"
+            unmute_and_set_level "$card" "PCM" "80%" 
+            # Play sound immediately after minimal setup
+            play_on_card "$card" /usr/share/livecd-sounds/startup.wav &
+            break
+        fi
+    done
 }
 
 is_numeric() {
