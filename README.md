@@ -21,9 +21,14 @@ Clone and build Ferrari OS ISO using ArchISO:
 
 ```bash
 git clone https://github.com/Openverse-iiitk/Ferrari-OS.git
+```
+```
 cd Ferrari-OS
+```
 sudo pacman -S archiso
-./scripts/build_iso.sh
+```
+```
+sudo ./scripts/build_iso.sh
 ```
 
 Test using QEMU:
